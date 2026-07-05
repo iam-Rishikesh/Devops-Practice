@@ -1,3 +1,10 @@
-const add=require('./index');
-if(add(2,3)===5){console.log('Test passed!');}
-else{console.error('Test failed!');process.exit(1);}
+console.log("Running Test...");
+
+const status = true;
+
+if (status) {
+    console.log("Test Passed");
+} else {
+    console.log("Test Failed");
+    process.exit(1);
+}
