@@ -14,17 +14,23 @@ jobs:
 
       - name: Checkout Code
         uses: actions/checkout@v4
-
+      
       - name: Setup NodeJS
         uses: actions/setup-node@v4
         with:
           node-version: 18
-
-      - name: Check Node Version
-        run: node -v
 
       - name: Install Dependencies
         run: npm install
 
       - name: Run Tests
         run: npm test
+
+      - name: Build Application
+        run: npm run build
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: website-build
+          path: dist
