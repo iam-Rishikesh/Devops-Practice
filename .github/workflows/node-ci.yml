@@ -1,4 +1,4 @@
-name: Node CI
+name: Node CI - Docker Build
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
 
       - name: Checkout Code
         uses: actions/checkout@v4
-      
+
       - name: Setup NodeJS
         uses: actions/setup-node@v4
         with:
@@ -34,3 +34,7 @@ jobs:
         with:
           name: website-build
           path: dist
+
+      - name: Build Docker Image
+        run: |
+          docker build -t devops-practice:${{ github.sha }} .
